@@ -1,0 +1,31 @@
+class Solution {
+    public void sortColors(int[] nums) {
+        int start=0,end = nums.length-1,curr = 0;
+        while(curr<=end){
+            if(nums[curr]==0){
+                swap(nums,curr,start);
+                start++;
+                curr++;
+            }
+            else if(nums[curr]==2){
+                swap(nums,curr,end);
+                end--; //no curr++ (we dont know swapped element is 1/0)
+            }
+            else
+                curr++;
+        }
+    }
+    
+    public void swap(int[] nums,int ptr1,int ptr2){
+        int temp = nums[ptr1];
+        nums[ptr1] = nums[ptr2];
+        nums[ptr2] = temp;
+    }
+    
+    public static void main(String args[]){
+    Solution ob = new Solution();
+    ob.sortColor(new int[]{2,0,2,1,1,0});
+    ob
+    
+    }
+}
